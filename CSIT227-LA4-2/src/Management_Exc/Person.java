@@ -12,10 +12,11 @@ public abstract class Person {
      */
     public Person(String name, int age) throws IllegalArgumentException {
         if(age < 0){
-            throw new IllegalArgumentException("Age must be non-negative");
+            throw new IllegalArgumentException("Age must be non-negative.");
+        }else {
+            this.name = name;
+            this.age = age;
         }
-        this.name = name;
-        this.age = age;
     }
 
     @Override

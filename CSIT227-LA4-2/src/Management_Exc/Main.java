@@ -22,18 +22,26 @@ public class Main {
         for(Person e : persons){
             if(Objects.equals(e.getName(), manager)){
                 if(!(e instanceof Manager)){
-                    throw new ClassCastException("name is not a/n type");
+                    throw new ClassCastException(e.getName() + " is not a manager");
+                }else {
+                    man = (Manager) e;
                 }
-                man = (Manager)e;
             }
         }
         for(Person e:persons){
             if(Objects.equals(e.getName(), employee)){
-                emp = (Employee)e;
+                if(!(e instanceof Employee)){
+                    throw new ClassCastException(e.getName() + " is not an employee");
+                }else {
+                    emp = (Employee) e;
+                }
             }
         }
-        if(man == null || emp == null){
-            throw new NoSuchElementException();
+        if(man == null){
+            throw new NoSuchElementException(manager + " does not exist");
+        }
+        if(emp == null){
+            throw new NoSuchElementException(employee + " does not exist");
         }
         man.giveRaise(emp,salary);
     }
@@ -52,16 +60,25 @@ public class Main {
         Manager man = null;
         for(Person e : persons){
             if(Objects.equals(e.getName(), developer)){
+                if(!(e instanceof Developer)){
+                    throw new ClassCastException(e.getName() + " is not a developer");
+                }
                 dev = (Developer)e;
             }
         }
         for(Person e:persons){
             if(Objects.equals(e.getName(), manager)){
+                if(!(e instanceof Manager)){
+                    throw new ClassCastException(e.getName() + " is not a manager");
+                }
                 man = (Manager)e;
             }
         }
-        if(man == null || dev == null){
-            throw new NoSuchElementException();
+        if(man == null){
+            throw new NoSuchElementException(manager + " does not exist");
+        }
+        if(dev == null){
+            throw new NoSuchElementException(developer + " does not exist");
         }
         dev.setProjectManager(man);
     }
@@ -80,16 +97,25 @@ public class Main {
         Employee emp = null;
         for(Person e : persons){
             if(Objects.equals(e.getName(), customer)){
+                if(!(e instanceof Customer)){
+                    throw new ClassCastException(e.getName() + " is not a customer");
+                }
                 cus = (Customer) e;
             }
         }
         for(Person e:persons){
             if(Objects.equals(e.getName(), employee)){
+                if(!(e instanceof Employee)){
+                    throw new ClassCastException(e.getName() + " is not an employee");
+                }
                 emp = (Employee) e;
             }
         }
-        if(emp == null || cus == null){
-            throw new NoSuchElementException();
+        if(cus == null){
+            throw new NoSuchElementException(customer + " does not exist");
+        }
+        if(emp == null){
+            throw new NoSuchElementException(employee + " does not exist");
         }
         return cus.speak(emp);
     }

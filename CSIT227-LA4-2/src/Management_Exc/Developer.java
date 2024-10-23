@@ -19,7 +19,7 @@ public class Developer extends Employee {
      */
     protected void setProjectManager(Manager projectManager) throws IllegalStateException{
         if(this.getProjectManager() != null){
-            throw new IllegalStateException("already has a manager");
+            throw new IllegalStateException(this.getName() + " already has a manager: " + this.getProjectManager().getName());
         }
         this.projectManager = projectManager;
     }
